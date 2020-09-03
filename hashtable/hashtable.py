@@ -155,6 +155,10 @@ class HashTable:
             # Double the hash table size
             self.resize(self.capacity * 2)
 
+        #? if load factor less than 0.7...
+        if current_load_factor < 0.6:
+            self.resize(self.capacity // 2)
+
 
     def delete(self, key):
         """

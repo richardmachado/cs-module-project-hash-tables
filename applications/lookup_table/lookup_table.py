@@ -1,5 +1,11 @@
-# Your code here
+"""
+There's no test file for this. It's counting to 50,000, so if it
+finishes before you give up, then you're golden.
+"""
 
+# Your code here
+import math
+import random
 
 def slowfun_too_slow(x, y):
     v = math.pow(x, y)
@@ -9,14 +15,25 @@ def slowfun_too_slow(x, y):
 
     return v
 
+
+cache = {}
+
 def slowfun(x, y):
     """
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.
     """
     # Your code here
-
-
+    #cache values
+    #build libraries based on some random numbers
+    key = (x, y)
+    if key not in cache:
+        cache[key] = math.pow(key[0], key[1])
+        cache[key] = math.factorial(cache[key])
+        cache[key] //= (x + y)
+        cache[key] %= 982451653
+        
+    return key
 
 # Do not modify below this line!
 
